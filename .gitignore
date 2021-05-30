@@ -39,5 +39,5 @@ out/
 
 
 
-src/main/resources/datasource.properties
 src/main/resources/test.yml
+src/main/resources/application-datasource.properties
