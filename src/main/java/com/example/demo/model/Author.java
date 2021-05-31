@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table(name = "author") //없어도 상관은 없음
 public class Author {
     @Column(name = "author_id")
-    @Id
+    @Id //pk임
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long no;
 

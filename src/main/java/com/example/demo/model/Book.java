@@ -40,15 +40,25 @@ public class Book {
     @Column(name = "book_photo")
     private String photo;
 
-    @Column(name = "book_sales")
-    private Integer sales;  //null이 있을 수 있기 때문에.
-
-    @Column(name = "book_registered_date")
-    private LocalDateTime registeredDate; //자바 클래스. 날짜는 무조건 이걸 사용.
+    @Column(name = "book_sector")
+    private Integer sector;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id")
     private Author author;    //연관관계가 맺어짐
+
+//    @Column(name = "book_sales")
+//    private Integer sales;  //null이 있을 수 있기 때문에.
+//
+//    @Column(name = "book_registered_date")
+//    private LocalDateTime registeredDate; //자바 클래스. 날짜는 무조건 이걸 사용.
+
+
+
+
+
+
+
 
 
 
