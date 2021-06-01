@@ -31,37 +31,37 @@ public class RidibooksController {
 
     @GetMapping("/books/new")
     public List<Book> getNewBooks() {
-        return bookRepository.findBySectorContaining("1");
+        return bookRepository.findBySectorContainingOrderBySectorAsc("1");
     }
 
     @GetMapping("/books/hot")
     public List<Book> getHotBooks(){
-        return bookRepository.findBySectorContaining("2");
+        return bookRepository.findBySectorOrderBySectorDesc("2");
     }
 
     @GetMapping("/books/today")
     public List<Book> getTodayBooks(){
-        return bookRepository.findBySectorContaining("3");
+        return bookRepository.findBySectorContainingOrderBySectorAsc("3");
     }
 
     @GetMapping("/books/bestseller")
     public List<Book> getBestsellers(){
-        return bookRepository.findBySectorContaining("4");
+        return bookRepository.findBySectorContainingOrderBySectorDesc("4");
     }
 
     @GetMapping("/books/thisWeek")
     public List<Book> getThisWeekBooks(){
-        return bookRepository.findBySectorContaining("5");
+        return bookRepository.findBySectorContainingOrderBySectorDesc("5");
     }
 
     @GetMapping("/books/modern")
     public List<Book> getModernBooks(){
-        return bookRepository.findBySectorContaining("6");
+        return bookRepository.findBySectorContainingOrderBySectorAsc("6");
     }
 
     @GetMapping("/books/hobby")
     public List<Book> getHobbyBooks(){
-        return bookRepository.findBySectorContaining("7");
+        return bookRepository.findBySectorContainingOrderBySectorDesc("7");
     }
 
 
@@ -70,9 +70,8 @@ public class RidibooksController {
     @GetMapping("books/all")
     public Map<String,List<Book>> getAll(){
         Map<String, List<Book>> result = new HashMap<>();
-        result.put("newest", bookRepository.findBySectorContaining("1"));
-        result.put("now", bookRepository.findBySectorContaining("2"));
-
+        result.put("newest", bookRepository.findBySectorOrderBySectorDesc("1"));
+        result.put("now", bookRepository.findBySectorOrderBySectorDesc("2"));
         return result;
     }
 

@@ -12,10 +12,13 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
 
     @EntityGraph(attributePaths = "author")
-    List<Book> findBySector(String sector);
+    List<Book> findBySectorOrderBySectorDesc(String sector);
 
     @EntityGraph(attributePaths = "author")
-    List<Book> findBySectorContaining(String sector);
+    List<Book> findBySectorContainingOrderBySectorAsc(String sector);
+
+    @EntityGraph(attributePaths = "author")
+    List<Book> findBySectorContainingOrderBySectorDesc(String sector);
 
 
 //    //db에 조건을 걸어서 가져옴
