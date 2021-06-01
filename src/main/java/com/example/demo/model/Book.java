@@ -41,7 +41,7 @@ public class Book {
     private String photo;
 
     @Column(name = "book_sector")
-    private Integer sector;
+    private String sector;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id")
