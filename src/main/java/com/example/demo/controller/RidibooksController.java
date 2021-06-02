@@ -5,12 +5,14 @@ import com.example.demo.model.Author;
 import com.example.demo.model.Book;
 import com.example.demo.repository.AuthorRepository;
 import com.example.demo.repository.BookRepository;
+import com.example.demo.repository.CategoryRepository;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,9 +27,14 @@ public class RidibooksController {
 
 
     private final AuthorRepository authorRepository;
-
-
     private final BookRepository bookRepository;
+    private final CategoryRepository categoryRepository;
+
+    //책 한 권 클릭했을 때
+    @GetMapping("/book/{book_id}")
+    public Book getBookInfo(@PathVariable("book_id") int book_id) {
+        return bookRepository.findById(book_id);
+    }
 
     @GetMapping("/books/new")
     public List<Book> getNewBooks() {

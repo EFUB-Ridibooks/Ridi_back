@@ -11,14 +11,17 @@ import java.util.List;
 public interface BookRepository extends JpaRepository<Book, Integer> {
 
 
-    @EntityGraph(attributePaths = "author")
+    @EntityGraph(attributePaths = {"author", "category", "publisher"})
     List<Book> findBySectorOrderBySectorDesc(String sector);
 
-    @EntityGraph(attributePaths = "author")
+    @EntityGraph(attributePaths =  {"author", "category", "publisher"})
     List<Book> findBySectorContainingOrderBySectorAsc(String sector);
 
-    @EntityGraph(attributePaths = "author")
+    @EntityGraph(attributePaths =  {"author", "category", "publisher"})
     List<Book> findBySectorContainingOrderBySectorDesc(String sector);
+
+    @EntityGraph(attributePaths =  {"author", "category", "publisher"})
+    Book findById(int book_id);
 
 
 //    //db에 조건을 걸어서 가져옴

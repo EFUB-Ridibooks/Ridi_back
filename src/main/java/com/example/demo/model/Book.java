@@ -47,6 +47,14 @@ public class Book {
     @JoinColumn(name = "author_id")
     private Author author;    //연관관계가 맺어짐
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ctg_id")
+    private Category category;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "publisher_id")
+    private Publisher publisher;
+
 //    @Column(name = "book_sales")
 //    private Integer sales;  //null이 있을 수 있기 때문에.
 //
