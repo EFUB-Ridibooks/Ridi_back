@@ -11,10 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,6 +20,7 @@ import java.util.Map;
 //@AllArgsConstructor //전체 필드의 생성자를 자동으로 만들어 줌
 @RequiredArgsConstructor
 @RestController
+@CrossOrigin(origins="*")
 public class RidibooksController {
 
 
@@ -81,6 +79,7 @@ public class RidibooksController {
         result.put("now", bookRepository.findBySectorOrderBySectorDesc("2"));
         return result;
     }
+
 
 
 
